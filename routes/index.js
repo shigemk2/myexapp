@@ -4,8 +4,8 @@
  */
 
 exports.index = function(req, res){
-    var id = req.query.id;
-    var name = req.query.name;
+    var id = req.params.id;
+    var name = req.params.name;
     var msg = 'こんにちは';
 
     if (id != undefined) {
