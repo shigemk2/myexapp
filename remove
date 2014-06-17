@@ -1,1 +1,1 @@
-find . | grep -E "[0-9]+" | xargs rm
+find . -maxdepth 1 | grep -E "[0-9]+" | xargs rm
