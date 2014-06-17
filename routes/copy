@@ -1,0 +1,4 @@
+#!/bin/sh
+cp index{,-`gdate '+%Y%m%d%k%M'`}.js
+cp index_post{,-`gdate '+%Y%m%d%k%M'`}.js
+cp user{,-`gdate '+%Y%m%d%k%M'`}.js
