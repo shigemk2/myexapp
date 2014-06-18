@@ -1,5 +1,12 @@
 #!/bin/sh
-_BASENAME=$1
-_FILENAME=${_BASENAME%.*}
-_EXTENSION=${_BASENAME##*.}
-cp $_FILENAME{,-`gdate '+%Y%m%d%H%M'`}.$_EXTENSION
+for i in $@
+do
+    _BASENAME=$i
+    _FILENAME=${_BASENAME%.*}
+    _EXTENSION=${_BASENAME##*.}
+    if test $_FILENAME != $_EXTENSION; then
+        cp $_FILENAME{,-`gdate '+%Y%m%d%H%M'`}.$_EXTENSION
+    else
+        cp $_FILENAME{,-`gdate '+%Y%m%d%H%M'`}
+    fi
+done
