@@ -12,5 +12,5 @@ do
         _COPYFILE=$_FILENAME-$_NOW
         cp $_FILENAME{,-$_NOW}
     fi
-    echo -n ${_COPYFILE}
+    printf "%s " ${_COPYFILE}
 done
