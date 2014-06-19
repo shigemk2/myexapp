@@ -5,8 +5,10 @@ do
     _FILENAME=${_BASENAME%.*}
     _EXTENSION=${_BASENAME##*.}
     if test $_FILENAME != $_EXTENSION; then
-        cp $_FILENAME{,-`gdate '+%Y%m%d%H%M'`}.$_EXTENSION
+        _COPYFILE=$_FILENAME{,-`gdate '+%Y%m%d%H%M'`}.$_EXTENSION
     else
-        cp $_FILENAME{,-`gdate '+%Y%m%d%H%M'`}
+        $_COPYFILE=$_FILENAME{,-`gdate '+%Y%m%d%H%M'`}
     fi
+    cp $_COPYFILE
+    echo $_COPYFILE
 done
