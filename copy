@@ -4,11 +4,12 @@ do
     _BASENAME=$i
     _FILENAME=${_BASENAME%.*}
     _EXTENSION=${_BASENAME##*.}
+    _NOW=`gdate '+%Y%m%d%H%M'`
     if test $_FILENAME != $_EXTENSION; then
-        _COPYFILE=$_FILENAME{,-`gdate '+%Y%m%d%H%M'`}.$_EXTENSION
+        echo $_FILENAME-$_NOW.$_EXTENSION
+        cp $_FILENAME{,-$_NOW}.$_EXTENSION
     else
-        $_COPYFILE=$_FILENAME{,-`gdate '+%Y%m%d%H%M'`}
+        echo $_FILENAME-$_NOW
+        cp $_FILENAME{,-$_NOW}
     fi
-    cp $_COPYFILE
-    echo $_COPYFILE
 done
