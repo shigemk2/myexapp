@@ -6,10 +6,11 @@ do
     _EXTENSION=${_BASENAME##*.}
     _NOW=`gdate '+%Y%m%d%H%M'`
     if test $_FILENAME != $_EXTENSION; then
-        echo $_FILENAME-$_NOW.$_EXTENSION
+        _COPYFILE=$_FILENAME-$_NOW.$_EXTENSION
         cp $_FILENAME{,-$_NOW}.$_EXTENSION
     else
-        echo $_FILENAME-$_NOW
+        _COPYFILE=$_FILENAME-$_NOW
         cp $_FILENAME{,-$_NOW}
     fi
+    echo -n $_COPYFILE
 done
