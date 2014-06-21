@@ -5,10 +5,9 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
-index_post = require('./routes/index_post');
+var index_post = require('./routes/index_post');
 
 var app = express();
 
@@ -32,7 +31,6 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/index', routes.index);
 app.get('/index/:id', routes.index);
 app.get('/index/:id/:name', routes.index);

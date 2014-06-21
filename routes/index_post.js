@@ -1,24 +1,17 @@
-var members = {
-    taro: 'yamada',
-    hanako:'flower'
+var data = {
+    taro: {mail:'taro@yamada',tel:'090-9999-9999'},
+    hanako: {mail:'hanako@flower',tel:'090-8888-8888'}
 };
 
 exports.index = function(req, res) {
-    var name = req.body.name;
-    var pass = req.body.pass;
-    var msg = '';
+    var name   = req.body.name;
+    var result = data[name];
+    console.log(req.body);
+    console.log(name);
+    console.log(data['taro']);
 
-    var member_pass = members[name];
-    if (member_pass == pass) {
-        req.session.login = true;
-        req.session.name = name;
-        msg = '"' + name + '"でログインしました。';
-    } else {
-        req.session.login = false;
-        msg = 'ログインに失敗しました';
-    };
-    res.render('index', {
-        title: 'Express',
-        msg: msg
-    });
+    if (result == undefined) {
+        result = {mail:'見つかりませんでした', tel:'見つかりませんでした'};
+    }
+    res.send(result);
 };
