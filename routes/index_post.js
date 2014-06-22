@@ -8,7 +8,6 @@ exports.index = function(req, res) {
     var result = data[name];
     console.log(req.body);
     console.log(name);
-    console.log(data['taro']);
 
     if (result == undefined) {
         result = {mail:'見つかりませんでした', tel:'見つかりませんでした'};
